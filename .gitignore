@@ -1,0 +1,7 @@
+*.c
+*.so
+dist/
+build/
+venv/
+deep_trees.egg-info/
+__pycache__
