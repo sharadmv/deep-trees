@@ -1,5 +1,6 @@
 import random
-from deep_trees.ddt import DDT, Node, Leaf
+
+from ..ddt import DDT, Node, Leaf
 
 def create_tree(n):
     leaves = [Leaf(i) for i in range(n)]
@@ -13,5 +14,3 @@ def create_tree(n):
     while len(leaves) > 1:
         merge()
     return DDT(Node([leaves[0]]))
-
-big_tree = create_tree(10000)
