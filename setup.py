@@ -15,7 +15,6 @@ ROOT_DIR = "deep_trees"
 def scandir(dir, files=[]):
     for file in os.listdir(dir):
         path = os.path.join(dir, file)
-        print(path)
         if os.path.isfile(path) and path.endswith(".pyx"):
             files.append(path.replace(os.path.sep, ".")[:-4])
         elif os.path.isdir(path):

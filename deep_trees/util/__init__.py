@@ -1,2 +1,2 @@
-from .tree import create_tree
-from .data import load_mnist
+from .data import load_mnist, sample_minibatch
+from .stats import log_normal

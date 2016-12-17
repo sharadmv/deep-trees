@@ -1,3 +1,1 @@
-from . import ddt
-from . import util
-from . import prior
+from . import ddt, util, prior, likelihood
