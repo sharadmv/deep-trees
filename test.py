@@ -36,13 +36,13 @@ tree = init_tree(data)
 
 def iter():
     slice_sample(tree)
-    # plt.cla()
-    # plot_tree(tree)
-    # plt.draw()
-    # plt.pause(0.001)
-[iter() for _ in range(100)]
+    plt.cla()
+    plot_tree(tree)
+    plt.draw()
+    plt.pause(0.001)
 
-# plt.ion()
-# plt.figure()
-# plot_tree(tree)
-# plt.show()
+plt.ion()
+plt.figure()
+plot_tree(tree)
+plt.show()
+[iter() for _ in range(100)]

@@ -1,4 +1,5 @@
 import numpy as np
+from deepx import T
 
 def cache(name):
     def wraps(f):
@@ -11,11 +12,11 @@ def cache(name):
         return func
     return wraps
 
-def make_divergence(float c):
-    def a(float t):
+def make_divergence(c):
+    def a(t):
         return c / (1 - t)
-    def A(float t):
-        return -c * np.log(1 - t)
+    def A(t):
+        return -c * T.log(1 - t)
     return a, A
 
 def make_harmonic():
