@@ -29,7 +29,7 @@ def make_extension(ext_name):
         ext_name,
         [ext_path],
         include_dirs = ["."],
-        extra_compile_args = ["-O3", "-Wall"],
+        extra_compile_args = ["-O3", "-Wall", "-ffast-math"],
     )
 
 # get the list of extensions
