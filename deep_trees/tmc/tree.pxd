@@ -26,5 +26,9 @@ cdef class TMC:
     cdef double var
 
     cdef Node* index(self, list idx)
+    cdef dict compute_message(self, Node* node, Node* source)
+    cdef double get_factor(self, Node* node, Node* source)
+
     cpdef time(self, list idx)
     cpdef branch_length(self, list idx)
+    cpdef get_message(self, list idx)
