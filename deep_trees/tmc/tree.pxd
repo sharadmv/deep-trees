@@ -9,6 +9,10 @@ ctypedef struct Node:
     int index
     double time_weight
 
+ctypedef struct Message:
+    double eta1
+    double[::1] eta2
+
 cdef Node* make_node(Pool mem, double time_weight) except NULL
 cdef Node* make_leaf(Pool mem, int index) except NULL
 cdef void add_child(Node* parent, Node* child)
@@ -21,14 +25,18 @@ cdef class TMC:
     cdef Pool mem
 
     cdef Node* root
-    cdef public np.ndarray data
+    cdef public double[:, ::1] data
     cdef public int num_leaves, dim
-    cdef double var
+    cdef public double var, prior
+
+    cpdef collect_messages(self, list idx=*)
 
     cdef Node* index(self, list idx)
-    cdef dict compute_message(self, Node* node, Node* source)
-    cdef double get_factor(self, Node* node, Node* source)
+    # cdef dict compute_message(self, Node* node, Node* source)
+    cdef Message* get_message(self, Node* node, Node* source) except NULL
+    cdef double likelihood(self, Node* node)
+    cdef double get_z(self, Node* node)
 
     cpdef time(self, list idx)
     cpdef branch_length(self, list idx)
-    cpdef get_message(self, list idx)
+    cpdef message(self, node, source)
